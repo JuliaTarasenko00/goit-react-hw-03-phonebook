@@ -47,11 +47,7 @@ export class App extends Component {
   };
   componentDidMount() {
     const contactsLocal = localStorage.getItem(KEY);
-    if (contactsLocal !== null) {
-      this.setState({ contacts: JSON.parse(contactsLocal) });
-    } else {
-      this.setState({ contacts: this.state.contacts });
-    }
+    this.setState({ contacts: JSON.parse(contactsLocal) ?? [] });
   }
 
   componentDidUpdate(prevProps, prevState) {
